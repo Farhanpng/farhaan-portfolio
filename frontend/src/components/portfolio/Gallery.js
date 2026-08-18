@@ -3,17 +3,57 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Play } from "lucide-react";
 import { api, imgSrc } from "../../lib/api";
 
-const LAYOUT = [];
+const DEFAULT_PHOTOS = [
+  // Fashion
+  { id: "fashion-1", title: "Sun & Style", category: "Fashion", src: "/images/11.png" },
+  { id: "fashion-2", title: "Poolside in Pink", category: "Fashion", src: "/images/12.png" },
+  { id: "fashion-3", title: "Fuchsia Sunshine Edit", category: "Fashion", src: "/images/13.png" },
+  { id: "fashion-4", title: "Block Print Blues", category: "Fashion", src: "/images/14.png" },
+  { id: "fashion-5", title: "Summer State of Mind", category: "Fashion", src: "/images/15.png" },
+  { id: "fashion-6", title: "Backdrop in the Wild", category: "Fashion", src: "/images/16.png" },
+  { id: "fashion-7", title: "Blooming Streets", category: "Fashion", src: "/images/17.png" },
+  { id: "fashion-8", title: "Off the Line", category: "Fashion", src: "/images/18.png" },
+  { id: "fashion-9", title: "Indigo Hour", category: "Fashion", src: "/images/19.png" },
+
+  // Concert
+  { id: "concert-1", title: "Parmish Verma Live", category: "Concert", src: "/images/1.png" },
+  { id: "concert-2", title: "Pyro & Soul", category: "Concert", src: "/images/2.png" },
+  { id: "concert-3", title: "Kartik Aaryan", category: "Concert", src: "/images/3.png" },
+  { id: "concert-4", title: "Farhan Akhtar Ignite", category: "Concert", src: "/images/4.png" },
+  { id: "concert-5", title: "Farhan Akhtar Acoustic", category: "Concert", src: "/images/5.png" },
+
+  // Jewellery
+  { id: "jewellery-1", title: "Ratnatray Signature", category: "Jewellery", src: "/images/6.png" },
+  { id: "jewellery-2", title: "A Drop of Midnight", category: "Jewellery", src: "/images/7.png" },
+  { id: "jewellery-3", title: "Pavé Gold Radiance", category: "Jewellery", src: "/images/20.png" },
+
+  // Food
+  { id: "food-1", title: "Woodfired Artisan Pizza", category: "Food", src: "/images/8.png" },
+  { id: "food-2", title: "Kaefin Coffee", category: "Food", src: "/images/9.png" },
+  { id: "food-3", title: "Layered Iced Espresso", category: "Food", src: "/images/10.png" },
+];
+
+const DEFAULT_REELS = [
+  { id: "reel-1", title: "Telugu Wedding", reel_id: "DZXUnYGqYR4", cover: "/images/reel-1-telugu-wedding.png" },
+  { id: "reel-2", title: "Bride's Outfit Deserves a Spotlight", reel_id: "DYBufRPhy46", cover: "/images/reel-2-brides-outfit.png" },
+  { id: "reel-3", title: "Rambagh Palace Jaipur", reel_id: "DVqC7lZAVmF", cover: "/images/reel-3-rambagh-palace.png" },
+  { id: "reel-4", title: "Dreamy Varmala", reel_id: "DUiXdM0gdbQ", cover: "/images/reel-4-dreamy-varmala.png" },
+  { id: "reel-5", title: "South Indian Themed Haldi", reel_id: "DWUN5M7AaMn", cover: "/images/reel-5-south-indian-haldi.png" },
+];
 
 export default function Gallery() {
-  const [photos, setPhotos] = useState([]);
-  const [reels, setReels] = useState([]);
+  const [photos, setPhotos] = useState(DEFAULT_PHOTOS);
+  const [reels, setReels] = useState(DEFAULT_REELS);
   const [active, setActive] = useState(null);
   const [filter, setFilter] = useState("All");
 
   useEffect(() => {
-    api.get("/photos").then((r) => setPhotos(r.data)).catch(() => {});
-    api.get("/reels").then((r) => setReels(r.data)).catch(() => {});
+    api.get("/photos")
+      .then((r) => { if (r.data && r.data.length > 0) setPhotos(r.data); })
+      .catch(() => {});
+    api.get("/reels")
+      .then((r) => { if (r.data && r.data.length > 0) setReels(r.data); })
+      .catch(() => {});
   }, []);
 
   const ORDER = ["Fashion", "Concert", "Jewellery", "Food"];

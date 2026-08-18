@@ -11,7 +11,12 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-export const imgSrc = (src) => (src && src.startsWith("http") ? src : `${BACKEND_URL}${src}`);
+export const imgSrc = (src) => {
+  if (!src) return "";
+  if (src.startsWith("http") || src.startsWith("/images/") || src.startsWith("data:")) return src;
+  if (BACKEND_URL) return `${BACKEND_URL}${src}`;
+  return src;
+};
 
 export function formatApiError(detail) {
   if (detail == null) return "Something went wrong. Please try again.";

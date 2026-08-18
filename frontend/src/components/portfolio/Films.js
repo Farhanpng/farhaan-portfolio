@@ -55,11 +55,58 @@ function VideoFrame({ video, featured, index }) {
   );
 }
 
+const DEFAULT_VIDEOS = [
+  {
+    id: "vid-1",
+    title: "JECRC University 2026 RHYTHM Aftermovie",
+    youtube_id: "btSfFJCsrrs",
+    description: "High-octane aftermovie covering live artist sets, massive crowd energy, and festival production."
+  },
+  {
+    id: "vid-2",
+    title: "The Day Alia Bhatt & Sharvari Took Over JECRC",
+    youtube_id: "Y8QEa9S9Jy0",
+    description: "Exclusive celebrity visit, crowd frenzy, and cinematic stage moments."
+  },
+  {
+    id: "vid-3",
+    title: "Street Dance | Rhythm'24",
+    youtube_id: "PDL4JVJ3cz4",
+    description: "Raw rhythm, dynamic street choreography, and energetic visual pacing."
+  },
+  {
+    id: "vid-4",
+    title: "Vicky Kaushal at JECRC University",
+    youtube_id: "d2usZzLmmZk",
+    description: "Cinematic highlight reel capturing celebrity interaction and stage presence."
+  },
+  {
+    id: "vid-5",
+    title: "JIC RISE 2.0 | Startup Business",
+    youtube_id: "Q98Qi-5y7To",
+    description: "Entrepreneurship summit, keynote sessions, and founder stories."
+  },
+  {
+    id: "vid-6",
+    title: "CINSPECTRA : JECRC Film Festival",
+    youtube_id: "cLuq3hOaN2g",
+    description: "Film festival coverage featuring filmmaker & director Ram Kamal Mukherjee."
+  },
+  {
+    id: "vid-7",
+    title: "Ashneer Grover at JECRC University",
+    youtube_id: "_s-7xX9sIFU",
+    description: "Keynote address, student interaction, and candid moments on stage."
+  }
+];
+
 export default function Films() {
-  const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState(DEFAULT_VIDEOS);
 
   useEffect(() => {
-    api.get("/videos").then((r) => setVideos(r.data)).catch(() => {});
+    api.get("/videos")
+      .then((r) => { if (r.data && r.data.length > 0) setVideos(r.data); })
+      .catch(() => {});
   }, []);
 
   return (

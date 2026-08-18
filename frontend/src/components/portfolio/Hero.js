@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { imgSrc } from "../../lib/api";
 
-const HERO_IMG = imgSrc("/api/files/cinema-portfolio/uploads/2b117371-54f0-4c75-9fc7-dc50cdb74df0.png");
+const HERO_IMG = "/images/hero.png";
 
 export default function Hero() {
   const ref = useRef(null);
@@ -15,9 +15,9 @@ export default function Hero() {
   return (
     <section ref={ref} id="top" data-testid="hero-section" className="relative min-h-screen overflow-hidden flex items-center justify-center">
       <motion.div style={{ y: imgY, scale: imgScale }} className="absolute inset-0 z-0">
-        <img src={HERO_IMG} alt="Farhan Khan portrait" className="w-full h-full object-cover object-[center_30%] grayscale-[10%]" />
-        <div className="absolute inset-0 bg-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#0A0A0A]/70" />
+        <img src={HERO_IMG} alt="Farhan Khan portrait" className="w-full h-full object-cover object-[center_30%] grayscale-[10%] brightness-[0.7]" />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-black/40 to-[#0A0A0A]/85" />
       </motion.div>
 
       <motion.div style={{ opacity: fade }} className="relative z-10 w-full px-4 text-center">

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { imgSrc } from "../../lib/api";
 
-const ABOUT_IMG = imgSrc("/api/files/cinema-portfolio/uploads/b889b259-97e5-4ed2-809d-97771d54a5ee.png");
+const ABOUT_IMG = "/images/farhan-portrait.jpg";
 
 export default function About() {
   return (

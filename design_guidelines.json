@@ -1,0 +1,159 @@
+{
+  "theme": "Dark cinematic",
+  "typography": {
+    "headings": {
+      "family": "Cormorant Garamond, serif",
+      "weights": ["400", "500", "600"],
+      "usage": "Use for all major section headings, hero text, and manifesto numbers. Ensure tight letter spacing (tracking-tight or tracking-tighter)."
+    },
+    "body": {
+      "family": "Outfit, sans-serif",
+      "weights": ["300", "400"],
+      "usage": "Use for paragraphs, UI elements, and admin panel text. Ensure good readability."
+    },
+    "mono": {
+      "family": "JetBrains Mono, monospace",
+      "weights": ["400"],
+      "usage": "Use for overlines, labels, and small metadata (like dates, categories) with uppercase and wide tracking (tracking-[0.2em])."
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl+",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl",
+      "h3": "text-xl sm:text-2xl",
+      "body": "text-base text-zinc-400"
+    }
+  },
+  "colors": {
+    "archetype": "LUXURY",
+    "background": {
+      "primary": "#0A0A0A",
+      "secondary": "#121212",
+      "tertiary": "#1A1A1A"
+    },
+    "text": {
+      "primary": "#F3F4F6",
+      "secondary": "#A1A1AA",
+      "accent": "#E4E4E7"
+    },
+    "accent": {
+      "primary": "#FFFFFF",
+      "hover": "#E4E4E7",
+      "border": "rgba(255, 255, 255, 0.1)"
+    },
+    "rules": [
+      "Never use pure black #000000, use tinted deep void #0A0A0A for base.",
+      "Avoid harsh pure white on pure black, use off-white (zinc-100/200) for text.",
+      "No full screen generic gradients. Keep backgrounds solid with potential subtle radial spotlights to highlight imagery."
+    ]
+  },
+  "visual_enhancers": {
+    "textures": "Add a fixed full-screen SVG noise/grain overlay (opacity-20 to opacity-30, pointer-events-none) to create a film-like cinematic texture.",
+    "surfaces": "Use flat solid surfaces or extremely delicate Crystal Glass (bg-black/60 backdrop-blur-xl border-white/10) for sticky headers. DO NOT use completely transparent backgrounds where text overlays imagery.",
+    "borders": "Use 1px borders with very low opacity (border-white/10) to define areas without looking boxed.",
+    "shadows": "Ambient diffuse shadows. Not highly visible on dark mode, so rely on 1px borders or subtle light bleed for depth."
+  },
+  "component_rules": {
+    "buttons": "Minimalist. Either pure text with a dramatic underline on hover, or sharp rectangular buttons with border-white/20 and hover:bg-white hover:text-black transition-colors.",
+    "cards": "DO NOT use standard Shadcn cards for the public portfolio. Build custom flat, clipped-frame containers with generous negative space. For Admin Panel, use standard flat Shadcn cards with border-white/10 and sharp corners.",
+    "forms": "Admin panel only. Use Shadcn Input/Form but style them with dark mode: bg-transparent, border-white/10, text-white. No heavy rounded corners.",
+    "navigation": "Sticky nav. Transparent at top, turns into Crystal Glass on scroll. Logo on left, text links on right."
+  },
+  "grids": {
+    "portfolio_gallery": "MODE A: TETRIS GRID. Asymmetrical bento layout. Use wide gaps (gap-8 or gap-12). Mix orientations (col-span-12 row-span-2, col-span-4 row-span-1). Do not perfectly fill the grid. Leave empty cells for tension.",
+    "admin_dashboard": "MODE B: High Density Grid. gap-4, structured, strictly functional."
+  },
+  "layouts": {
+    "spacing": "Generous. p-12, p-16, p-24, py-32 for sections. Let the photography breathe.",
+    "hero": "Cinematic full screen or min-h-[90vh]. Masked line-by-line headline reveal. A central or heavily asymmetrical image focal point.",
+    "about": "Numbered manifesto chapters. Use huge numbers (e.g. 01, 02) in serif, with editorial layout for the text."
+  },
+  "motion": {
+    "scrolling": "Use Lenis for smooth momentum scrolling across the app.",
+    "reveals": "Use Framer Motion for scroll reveals (fade up, slow slight scale on images).",
+    "hero_headline": "Kinetic masked line-by-line reveal (using overflow-hidden wrappers on text lines and framer-motion y-translation).",
+    "marquee": "Use react-fast-marquee. Extremely slow editorial ribbon (serif, small text, massive gaps like gap-32) running across the bottom or between sections."
+  },
+  "accessibility": {
+    "contrast": "Ensure text over images uses a subtle gradient overlay (e.g. bg-gradient-to-t from-black/80 to-transparent) or text-shadow.",
+    "focus": "focus:ring-1 focus:ring-white/50 focus:outline-none.",
+    "animations": "Respect prefers-reduced-motion for all framer-motion setups."
+  },
+  "media": {
+    "images": "Photography is the hero. Use spotlight treatment (brighter in center, fading to dark edges) or clipped frames. max-h-[80vh] on mobile to prevent blocking.",
+    "videos": "Embed YouTube videos in an elegant 16:9 aspect-ratio container with border-white/10. Add subtle scale effect on hover if interactive."
+  },
+  "image_urls": {
+    "hero": [
+      {
+        "url": "https://images.unsplash.com/photo-1634733049839-0292be607569?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwyfHxkYXJrJTIwbW9vZHklMjBjaW5lbWF0b2dyYXBoeSUyMHBvcnRyYWl0fGVufDB8fHx8MTc4NzAzMzg1OXww&ixlib=rb-4.1.0&q=85",
+        "description": "Dark moody cinematography portrait (Woman standing in dark)",
+        "category": "Hero Background or Main Focus Subject"
+      }
+    ],
+    "gallery_portraits": [
+      {
+        "url": "https://images.pexels.com/photos/29433729/pexels-photo-29433729.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Artistic portrait with dramatic shadow play",
+        "category": "Gallery Item"
+      },
+      {
+        "url": "https://images.pexels.com/photos/34742151/pexels-photo-34742151.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Intense and dramatic portrait",
+        "category": "Gallery Item"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1568038479111-87bf80659645?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwbW9vZHklMjBjaW5lbWF0b2dyYXBoeSUyMHBvcnRyYWl0fGVufDB8fHx8MTc4NzAzMzg1OXww&ixlib=rb-4.1.0&q=85",
+        "description": "Close up moody portrait",
+        "category": "Gallery Item"
+      }
+    ],
+    "gallery_landscapes": [
+      {
+        "url": "https://images.unsplash.com/photo-1461301214746-1e109215d6d3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwxfHxjaW5lbWF0aWMlMjBsYW5kc2NhcGUlMjBwaG90b2dyYXBoeXxlbnwwfHx8fDE3ODcwMzM4NTl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Cinematic coastal cliffs",
+        "category": "Gallery Item"
+      },
+      {
+        "url": "https://images.pexels.com/photos/11290329/pexels-photo-11290329.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Cinematic berlin street night",
+        "category": "Gallery Item"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1477346611705-65d1883cee1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODd8MHwxfHNlYXJjaHwzfHxjaW5lbWF0aWMlMjBsYW5kc2NhcGUlMjBwaG90b2dyYXBoeXxlbnwwfHx8fDE3ODcwMzM4NTl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Aerial dark mountains",
+        "category": "Gallery Item"
+      }
+    ],
+    "about": [
+      {
+        "url": "https://images.pexels.com/photos/17844891/pexels-photo-17844891.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Silhouette of a cameraman holding equipment",
+        "category": "About section author visual"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Install required packages: yarn add framer-motion @studio-freight/lenis react-fast-marquee @phosphor-icons/react",
+    "Ensure Javascript (.js) is used, DO NOT use TypeScript (.tsx).",
+    "Build the Admin panel with Shadcn components (tables, inputs, dialogs) keeping it dark-themed and functional.",
+    "Build the public facing site with custom HTML/Tailwind, avoiding Shadcn generic cards to maintain the Awwwards-level design.",
+    "Add 'data-testid' to ALL interactive elements (buttons, inputs, links).",
+    "Hero section: Build a masked line-by-line reveal using framer-motion for the H1. Add a subtle parallax effect.",
+    "Implement Lenis smooth scroll globally in the layout component.",
+    "For the photo gallery, build an asymmetrical CSS grid (Tetris grid) and implement a simple lightbox when an image is clicked.",
+    "About section must feature numbered manifesto chapters (e.g. 01, 02) in large serif font."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Avoid generic centered layouts, simplistic gradients, and uniform styling.",
+    "Use glass-morphism effects with backdrop filters where appropriate.",
+    "MUST NOT apply universal transition (transition: all). Target specific properties.",
+    "MUST NOT center align the app container in CSS (.App { text-align: center; }).",
+    "Every interaction needs micro-animations - hover states, transitions.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Include subtle grain textures for the dark cinematic feel.",
+    "Do NOT use AI assistant Emoji characters for icons.",
+    "Use sonner for toast notifications.",
+    "Prioritize pre-existing Shadcn components for interactive logic but heavily customize their look."
+  ]
+}

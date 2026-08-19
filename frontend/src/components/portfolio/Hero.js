@@ -26,7 +26,7 @@ export default function Hero() {
             initial={{ y: "110%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-mono text-[10px] md:text-xs uppercase tracking-[0.45em] text-amber-300"
+            className="font-mono text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.25em] sm:tracking-[0.45em] text-amber-300"
             data-testid="hero-overline"
           >
             Photographer — Cinematographer
@@ -36,7 +36,7 @@ export default function Hero() {
         <h1 data-testid="hero-headline" className="font-display font-extrabold uppercase tracking-tight leading-[0.95] text-zinc-100">
           <span className="block overflow-hidden">
             <motion.span
-              className="block text-[10.5vw] md:text-[7.6vw] whitespace-nowrap"
+              className="block text-[7.2vw] sm:text-[7.6vw] md:text-[7.6vw] whitespace-nowrap"
               initial={{ y: "112%" }}
               animate={{ y: "0%" }}
               transition={{ duration: 1.15, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -51,7 +51,7 @@ export default function Hero() {
             initial={{ y: "110%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 0.9, delay: 0.95, ease: [0.22, 1, 0.36, 1] }}
-            className="font-mono text-[10px] md:text-xs uppercase tracking-[0.35em] text-amber-300"
+            className="font-mono text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.2em] sm:tracking-[0.35em] text-amber-300 px-2"
           >
             Every frame a sentence — every film a story
           </motion.p>

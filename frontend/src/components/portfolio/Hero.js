@@ -33,15 +33,25 @@ export default function Hero() {
           </motion.p>
         </div>
 
-        <h1 data-testid="hero-headline" className="font-display font-extrabold uppercase tracking-tight leading-[0.95] text-zinc-100">
+        <h1 data-testid="hero-headline" className="font-display font-extrabold uppercase tracking-tight leading-[0.92] text-zinc-100">
           <span className="block overflow-hidden">
             <motion.span
-              className="block text-[7.2vw] sm:text-[7.6vw] md:text-[7.6vw] whitespace-nowrap"
+              className="block text-[13vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[8vw]"
               initial={{ y: "112%" }}
               animate={{ y: "0%" }}
-              transition={{ duration: 1.15, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1.15, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
-              Farhan Khan
+              Farhan
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden">
+            <motion.span
+              className="block text-[13vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[8vw]"
+              initial={{ y: "112%" }}
+              animate={{ y: "0%" }}
+              transition={{ duration: 1.15, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Khan
             </motion.span>
           </span>
         </h1>

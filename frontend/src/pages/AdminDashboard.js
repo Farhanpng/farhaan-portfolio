@@ -21,10 +21,10 @@ export default function AdminDashboard() {
   const navigate = useNavigate();
 
   const load = useCallback(() => {
-    api.get("/photos").then((r) => setPhotos(r.data)).catch(() => {});
-    api.get("/videos").then((r) => setVideos(r.data)).catch(() => {});
-    api.get("/reels").then((r) => setReels(r.data)).catch(() => {});
-    api.get("/messages").then((r) => setMessages(r.data)).catch(() => {});
+    api.get("/photos").then((r) => { if (Array.isArray(r.data)) setPhotos(r.data); }).catch(() => {});
+    api.get("/videos").then((r) => { if (Array.isArray(r.data)) setVideos(r.data); }).catch(() => {});
+    api.get("/reels").then((r) => { if (Array.isArray(r.data)) setReels(r.data); }).catch(() => {});
+    api.get("/messages").then((r) => { if (Array.isArray(r.data)) setMessages(r.data); }).catch(() => {});
   }, []);
 
   useEffect(() => {

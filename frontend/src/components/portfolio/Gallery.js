@@ -49,17 +49,24 @@ export default function Gallery() {
 
   useEffect(() => {
     api.get("/photos")
-      .then((r) => { if (r.data && r.data.length > 0) setPhotos(r.data); })
+      .then((r) => {
+        if (Array.isArray(r.data) && r.data.length > 0) setPhotos(r.data);
+      })
       .catch(() => {});
     api.get("/reels")
-      .then((r) => { if (r.data && r.data.length > 0) setReels(r.data); })
+      .then((r) => {
+        if (Array.isArray(r.data) && r.data.length > 0) setReels(r.data);
+      })
       .catch(() => {});
   }, []);
 
+  const photoList = Array.isArray(photos) ? photos : DEFAULT_PHOTOS;
+  const reelList = Array.isArray(reels) ? reels : DEFAULT_REELS;
+
   const ORDER = ["Fashion", "Concert", "Jewellery", "Food"];
-  const present = new Set(photos.map((p) => p.category).filter(Boolean));
+  const present = new Set(photoList.map((p) => p.category).filter(Boolean));
   const categories = ["All", ...ORDER.filter((c) => present.has(c))];
-  const filtered = filter === "All" ? photos : photos.filter((p) => p.category === filter);
+  const filtered = filter === "All" ? photoList : photoList.filter((p) => p.category === filter);
 
   return (
     <section id="gallery" data-testid="gallery-section" className="max-w-[1600px] mx-auto px-6 md:px-12 py-28 md:py-40">
@@ -123,7 +130,7 @@ export default function Gallery() {
         </div>
       )}
 
-      {reels.length > 0 && (
+      {reelList.length > 0 && (
         <div className="mt-24 md:mt-36" data-testid="wedding-reels-block">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -138,7 +145,7 @@ export default function Gallery() {
             </div>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-6" data-testid="reels-grid">
-            {reels.map((r, i) => (
+            {reelList.map((r, i) => (
               <motion.a
                 key={r.id}
                 href={`https://www.instagram.com/reel/${r.reel_id}/`}

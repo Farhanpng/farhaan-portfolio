@@ -105,9 +105,13 @@ export default function Films() {
 
   useEffect(() => {
     api.get("/videos")
-      .then((r) => { if (r.data && r.data.length > 0) setVideos(r.data); })
+      .then((r) => {
+        if (Array.isArray(r.data) && r.data.length > 0) setVideos(r.data);
+      })
       .catch(() => {});
   }, []);
+
+  const videoList = Array.isArray(videos) ? videos : DEFAULT_VIDEOS;
 
   return (
     <section id="films" data-testid="films-section" className="border-t border-white/10">
@@ -123,11 +127,11 @@ export default function Films() {
           <h2 className="font-sans font-semibold tracking-tight text-zinc-100 text-4xl sm:text-5xl lg:text-6xl">Films &amp; motion.</h2>
         </motion.div>
 
-        {videos.length === 0 ? (
+        {videoList.length === 0 ? (
           <p className="text-zinc-600 font-mono text-xs uppercase tracking-[0.3em]" data-testid="films-empty">Films are on their way.</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14" data-testid="films-grid">
-            {videos.map((v, i) => (
+            {videoList.map((v, i) => (
               <VideoFrame key={v.id} video={v} index={i} featured={i === 0} />
             ))}
           </div>

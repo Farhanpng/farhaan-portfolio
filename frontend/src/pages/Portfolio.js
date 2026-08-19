@@ -12,17 +12,29 @@ import Footer from "../components/portfolio/Footer";
 
 export default function Portfolio() {
   useEffect(() => {
-    const lenis = new Lenis({ duration: 1.25, smoothWheel: true });
-    window.__lenis = lenis;
+    let lenis;
     let raf;
-    const loop = (time) => {
-      lenis.raf(time);
+    try {
+      lenis = new Lenis({ duration: 1.25, smoothWheel: true });
+      window.__lenis = lenis;
+      const loop = (time) => {
+        if (lenis && typeof lenis.raf === "function") {
+          lenis.raf(time);
+        }
+        raf = requestAnimationFrame(loop);
+      };
       raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
+    } catch (e) {
+      console.warn("Lenis smooth scroll error:", e);
+    }
+
     return () => {
-      cancelAnimationFrame(raf);
-      lenis.destroy();
+      if (raf) cancelAnimationFrame(raf);
+      try {
+        if (lenis && typeof lenis.destroy === "function") {
+          lenis.destroy();
+        }
+      } catch (e) {}
       window.__lenis = null;
     };
   }, []);

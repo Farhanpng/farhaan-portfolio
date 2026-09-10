@@ -21,6 +21,10 @@ const DEFAULT_PHOTOS = [
   { id: "concert-3", title: "Kartik Aaryan", category: "Concert", src: "/images/3.png" },
   { id: "concert-4", title: "Farhan Akhtar Ignite", category: "Concert", src: "/images/4.png" },
   { id: "concert-5", title: "Farhan Akhtar Acoustic", category: "Concert", src: "/images/5.png" },
+  { id: "concert-6", title: "Gajendra Verma", category: "Concert", src: "/images/gajendra-verma.jpg" },
+  { id: "concert-7", title: "Zakir Khan", category: "Concert", src: "/images/zakir-khan-1.png" },
+  { id: "concert-8", title: "Zakir Khan", category: "Concert", src: "/images/zakir-khan-2.jpg" },
+  { id: "concert-9", title: "Harsh Gujral", category: "Concert", src: "/images/harsh-gujral.jpg" },
 
   // Jewellery
   { id: "jewellery-1", title: "Ratnatray Signature", category: "Jewellery", src: "/images/6.png" },
